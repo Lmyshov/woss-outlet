@@ -94,13 +94,14 @@ p{text-wrap:pretty}
 .menu a.big{display:block;font-family:var(--serif);font-size:clamp(44px,11vw,110px);line-height:1.04;overflow:hidden}
 .menu a.big span{display:block;transform:translate3d(0,105%,0);transition:transform .9s var(--e)}
 .menu.open a.big span{transform:none;transition-delay:calc(.15s + var(--i)*70ms)}
+@media(max-height:620px){.menu{align-content:start;padding-top:90px;overflow-y:auto}}
 .menu a.big:hover{color:var(--acc2);font-style:italic}
 .menu .mf{position:absolute;left:var(--pad);right:var(--pad);bottom:34px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,241,237,.5)}
 
 /* hero */
 .hero{min-height:100dvh;padding:130px 0 70px;display:flex;align-items:center}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,70px);align-items:center}
-.hero h1{font-size:clamp(50px,8vw,146px);line-height:.92;margin:26px 0 34px;letter-spacing:-.03em}
+.hero h1{font-size:clamp(46px,7vw,140px);line-height:.92;margin:26px 0 34px;letter-spacing:-.03em}
 .hero .sub{max-width:480px;font-size:17px;color:var(--ink2);margin-bottom:34px}
 .hero .cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
 .hero .intro{opacity:0;transform:translate3d(0,40px,0);animation:rise 1.4s var(--e) forwards;animation-delay:calc(.2s + var(--d,0)*.12s)}
@@ -132,7 +133,7 @@ p{text-wrap:pretty}
 .st::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(192,101,47,.22),transparent 68%);z-index:-1;transition:transform 1.4s var(--e)}
 .st:hover{transform:translateY(-6px)}
 .st:hover::before{transform:scale(1.6)}
-.st .k{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2)}
+.st .k{display:flex;justify-content:flex-start;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2)}
 .st .v{display:flex;align-items:baseline;gap:8px;margin:38px 0 20px;font-family:var(--serif);line-height:.9;flex-wrap:wrap}
 .st .v b{font-weight:400;font-size:clamp(60px,6.6vw,112px);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
 .st .v i{font-style:italic;color:var(--acc);font-size:clamp(26px,2.6vw,42px)}
@@ -150,17 +151,18 @@ p{text-wrap:pretty}
 /* about */
 .about{padding:clamp(100px,14vw,220px) 0 clamp(60px,8vw,120px)}
 .about .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,6vw,110px);align-items:center}
+.about .wrap.fw{display:block}
 .about .big{font-family:var(--serif);font-size:clamp(40px,5.4vw,92px);line-height:1;letter-spacing:-.02em;margin:28px 0}
 .about .small{max-width:470px;color:var(--ink2);font-size:17px}
 .about .pics{position:relative;height:min(80vh,720px);min-height:480px}
 .about .p1{position:absolute;right:0;top:0;width:80%;height:84%;border-radius:28px}
 .about .p2{position:absolute;left:0;bottom:0;width:50%;height:40%;border-radius:24px;box-shadow:0 0 0 8px var(--bg)}
-.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(50px,7vw,100px)}
-.feat{padding:28px;border-radius:26px;background:var(--bg2);display:flex;flex-direction:column;gap:46px;min-height:240px;transition:transform .8s var(--e2),background .6s var(--e2),color .6s}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(50px,7vw,100px)}
+.feat{padding:28px;border-radius:26px;background:var(--bg2);display:flex;flex-direction:column;justify-content:space-between;gap:46px;min-height:260px;transition:transform .8s var(--e2),background .6s var(--e2),color .6s}
 .feat:hover{transform:translateY(-6px);background:var(--ink);color:#fff}
 .feat:hover p{color:rgba(255,255,255,.7)}
-.feat:hover .n{color:var(--acc2)}
-.feat .n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--acc);transition:color .6s}
+.feat::before{content:"";width:36px;height:2px;border-radius:2px;background:var(--acc);transition:width .8s var(--e2),background .6s}
+.feat:hover::before{width:72px;background:var(--acc2)}
 .feat h3{font-size:clamp(28px,2.6vw,40px);margin-bottom:10px}
 .feat p{color:var(--ink2);font-size:14.5px;transition:color .6s}
 
@@ -177,7 +179,6 @@ p{text-wrap:pretty}
 .cat::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(15,15,17,0) 45%,rgba(15,15,17,.8) 100%)}
 .cat .tx{position:absolute;z-index:2;left:26px;right:26px;bottom:24px;display:flex;justify-content:space-between;align-items:end;gap:16px}
 .cat h3{font-size:clamp(32px,3.4vw,56px)}
-.cat small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin-bottom:8px}
 .cat .go{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center;flex:none;transition:transform .7s var(--e2),background .5s}
 .cat .go svg{width:16px;height:16px}
 .cat:hover .go{transform:rotate(-45deg);background:var(--acc)}
@@ -226,8 +227,7 @@ p{text-wrap:pretty}
 .s .ph img{transition:transform 1.4s var(--e),opacity 1.2s var(--e)}
 .s:hover .ph img{transform:scale(1.06)}
 .s .b{padding:24px 26px 26px}
-.s .n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--acc2)}
-.s h4{font-size:34px;line-height:1.02;margin:10px 0}
+.s h4{font-size:34px;line-height:1.02;margin:0 0 10px}
 .s p{color:rgba(243,241,237,.66);font-size:15px;min-height:46px}
 .s .f{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09);font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:rgba(243,241,237,.6);font-variant-numeric:tabular-nums}
 .ymap{display:inline-flex;margin-top:40px}
@@ -258,14 +258,17 @@ p{text-wrap:pretty}
 footer{padding:90px 0 36px;overflow:hidden}
 .ftop{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap}
 .ftop h2{max-width:900px;color:var(--bg)}
-footer .huge{font-family:var(--logo);font-weight:400;font-size:clamp(54px,14.4vw,260px);line-height:.9;letter-spacing:.02em;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(243,241,237,.25);margin:80px 0 34px;user-select:none;white-space:nowrap;transition:color 1.2s var(--e2)}
-footer .huge:hover{color:var(--acc)}
+footer .huge{display:block;width:100%;height:auto;margin:80px 0 34px;user-select:none;overflow:visible}
+footer .huge text{font-family:var(--logo);font-size:150px;font-weight:400;fill:transparent;stroke:rgba(243,241,237,.28);stroke-width:1.2;vector-effect:non-scaling-stroke;transition:fill 1.2s var(--e2)}
+footer .huge:hover text{fill:var(--acc)}
 .fgrid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px;color:rgba(243,241,237,.6)}
 .fgrid nav{display:flex;gap:26px;flex-wrap:wrap}
 .fgrid a:hover{color:var(--bg)}
 
 /* responsive */
 @media(max-width:1000px){
+  .hero h1{font-size:clamp(42px,11vw,104px)}
+  .hero .sub{font-size:16px}
   .nav ul{display:none}.burger{display:block}.nav .cta{display:none}.nav{padding-left:20px}
   .hero{padding-top:110px;align-items:start}
   .hero .wrap,.about .wrap,.visit .wrap{grid-template-columns:1fr}
@@ -278,7 +281,24 @@ footer .huge:hover{color:var(--acc)}
   .look:nth-child(even){margin-top:30px}
 }
 @media(max-width:620px){
-  .bento{grid-template-columns:1fr}
+  :root{--pad:18px}
+  .nav{top:12px;padding-left:18px}.logo{font-size:17px;margin-right:12px}
+  .hero{padding:96px 0 50px}
+  .hero .cta-row{gap:18px}
+  .btn{font-size:14px;padding-left:20px}
+  .promo{padding:90px 0}.promo h2{font-size:clamp(46px,14vw,90px)}.promo p{font-size:16px}
+  .about .big{font-size:clamp(34px,9.4vw,56px)}
+  .chipg{right:0;padding:10px 14px}.chipg b{font-size:30px}
+  .about .pics{height:420px}
+  .feat{min-height:200px}
+  .look{width:72vw}
+  .look:nth-child(even){margin-top:0}
+  .head{margin-bottom:36px}
+  .form h3{font-size:34px}
+  footer{padding-top:60px}
+  footer .huge{margin:50px 0 24px}
+  .fgrid{flex-direction:column}
+  .bento{grid-template-columns:1fr}.bento{grid-auto-rows:320px}
   .sgrid,.strip .wrap,.feats{grid-template-columns:1fr}
   .badge{min-width:108px;height:108px;font-size:30px}
   .row{grid-template-columns:96px 1fr}
@@ -345,10 +365,10 @@ footer .huge:hover{color:var(--acc)}
 
 <div class="strip">
   <div class="wrap">
-    <div class="rv"><div class="st hot"><div class="k"><span>01</span><span>Скидки</span></div><div class="v"><b>30–<span data-count="80">0</span></b><i>%</i></div><div class="bar" style="--w:80%"></div><p>выгоднее, чем в других магазинах</p></div></div>
-    <div class="rv" style="--d:1"><div class="st"><div class="k"><span>02</span><span>Бренды</span></div><div class="v"><b data-count="2000">0</b><i>+</i></div><div class="bar" style="--w:100%"></div><p>мировых брендов в наших магазинах</p></div></div>
-    <div class="rv" style="--d:2"><div class="st"><div class="k"><span>03</span><span>Сеть</span></div><div class="v"><b data-count="15">0</b><i>магазинов</i></div><div class="bar" style="--w:30%"></div><p>в Москве, Подмосковье и регионах</p></div></div>
-    <div class="rv" style="--d:3"><div class="st"><div class="k"><span>04</span><span>Новинки</span></div><div class="v"><b data-count="7">0</b><i>дней</i></div><div class="bar" style="--w:100%"></div><p>в неделю: новые товары появляются ежедневно</p></div></div>
+    <div class="rv"><div class="st hot"><div class="k"><span>Скидки</span></div><div class="v"><b>30–<span data-count="80">0</span></b><i>%</i></div><div class="bar" style="--w:80%"></div><p>выгоднее, чем в других магазинах</p></div></div>
+    <div class="rv" style="--d:1"><div class="st"><div class="k"><span>Бренды</span></div><div class="v"><b data-count="2000">0</b><i>+</i></div><div class="bar" style="--w:100%"></div><p>мировых брендов в наших магазинах</p></div></div>
+    <div class="rv" style="--d:2"><div class="st"><div class="k"><span>Сеть</span></div><div class="v"><b data-count="15">0</b><i>магазинов</i></div><div class="bar" style="--w:30%"></div><p>в Москве, Подмосковье и регионах</p></div></div>
+    <div class="rv" style="--d:3"><div class="st"><div class="k"><span>Новинки</span></div><div class="v"><b data-count="7">0</b><i>дней</i></div><div class="bar" style="--w:100%"></div><p>в неделю: новые товары появляются ежедневно</p></div></div>
   </div>
 </div>
 
@@ -364,12 +384,12 @@ footer .huge:hover{color:var(--acc)}
       <div class="p2 ph par rv" style="--d:2"><img src="img/fitting.jpg" alt="Примерочные в магазине" loading="lazy"></div>
     </div>
   </div>
-  <div class="wrap">
+  <div class="wrap fw">
     <div class="feats">
-      <div class="feat rv"><span class="n">01</span><div><h3>Оригинальные товары</h3><p>Все товары в наших магазинах являются подлинными.</p></div></div>
-      <div class="feat rv" style="--d:1"><span class="n">02</span><div><h3>Скидки 30%–80%</h3><p>Выгоднее, чем в других магазинах.</p></div></div>
-      <div class="feat rv" style="--d:2"><span class="n">03</span><div><h3>Частые обновления ассортимента</h3><p>Новые товары появляются в магазинах ежедневно.</p></div></div>
-      <div class="feat rv" style="--d:3"><span class="n">04</span><div><h3>2000+ мировых брендов</h3><p>В наших магазинах представлены товары от известных мировых брендов.</p></div></div>
+      <div class="feat rv"><div><h3>Оригинальные товары</h3><p>Все товары в наших магазинах являются подлинными.</p></div></div>
+      <div class="feat rv" style="--d:1"><div><h3>Скидки 30%–80%</h3><p>Выгоднее, чем в других магазинах.</p></div></div>
+      <div class="feat rv" style="--d:2"><div><h3>Частые обновления ассортимента</h3><p>Новые товары появляются в магазинах ежедневно.</p></div></div>
+      <div class="feat rv" style="--d:3"><div><h3>2000+ мировых брендов</h3><p>В наших магазинах представлены товары от известных мировых брендов.</p></div></div>
     </div>
   </div>
 </section>
@@ -382,12 +402,12 @@ footer .huge:hover{color:var(--acc)}
       <p class="rv">Одежда, обувь, аксессуары и товары для дома от известных мировых брендов.</p>
     </div>
     <div class="bento">
-      <a class="cat k1 rv" href="#stores"><div class="ph par"><img src="img/c-women.jpg" alt="Женская одежда" loading="lazy"></div><div class="tx"><div><small>01</small><h3>Женская одежда</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
-      <a class="cat k2 rv" style="--d:1" href="#stores"><div class="ph par"><img src="img/c-men.jpg" alt="Мужская одежда" loading="lazy"></div><div class="tx"><div><small>02</small><h3>Мужская одежда</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
-      <a class="cat k3 rv" style="--d:2" href="#stores"><div class="ph par"><img src="img/c-kids.jpg" alt="Детская одежда" loading="lazy"></div><div class="tx"><div><small>03</small><h3>Детская одежда</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
-      <a class="cat k4 rv" href="#stores"><div class="ph par"><img src="img/c-shoes.jpg" alt="Обувь" loading="lazy"></div><div class="tx"><div><small>04</small><h3>Обувь</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
-      <a class="cat k5 rv" style="--d:1" href="#stores"><div class="ph par"><img src="img/c-acc.jpg" alt="Аксессуары" loading="lazy"></div><div class="tx"><div><small>05</small><h3>Аксессуары</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
-      <a class="cat k6 rv" style="--d:2" href="#stores"><div class="ph par"><img src="img/c-home.jpg" alt="Товары для дома" loading="lazy"></div><div class="tx"><div><small>06</small><h3>Товары для дома</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
+      <a class="cat k1 rv" href="#stores"><div class="ph par"><img src="img/c-women.jpg" alt="Женская одежда" loading="lazy"></div><div class="tx"><div><h3>Женская одежда</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
+      <a class="cat k2 rv" style="--d:1" href="#stores"><div class="ph par"><img src="img/c-men.jpg" alt="Мужская одежда" loading="lazy"></div><div class="tx"><div><h3>Мужская одежда</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
+      <a class="cat k3 rv" style="--d:2" href="#stores"><div class="ph par"><img src="img/c-kids.jpg" alt="Детская одежда" loading="lazy"></div><div class="tx"><div><h3>Детская одежда</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
+      <a class="cat k4 rv" href="#stores"><div class="ph par"><img src="img/c-shoes.jpg" alt="Обувь" loading="lazy"></div><div class="tx"><div><h3>Обувь</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
+      <a class="cat k5 rv" style="--d:1" href="#stores"><div class="ph par"><img src="img/c-acc.jpg" alt="Аксессуары" loading="lazy"></div><div class="tx"><div><h3>Аксессуары</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
+      <a class="cat k6 rv" style="--d:2" href="#stores"><div class="ph par"><img src="img/c-home.jpg" alt="Товары для дома" loading="lazy"></div><div class="tx"><div><h3>Товары для дома</h3></div><i class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></div></a>
     </div>
   </div>
 </section>
@@ -417,16 +437,16 @@ footer .huge:hover{color:var(--acc)}
     </div>
   </div>
   <div class="rail" id="lrail">
-    <figure class="look"><div class="ph rv"><img src="img/luxe.jpg" alt="Отдел Brands Luxe" loading="lazy" draggable="false"></div><figcaption><span>Brands Luxe</span><span>01</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/sport.jpg" alt="Отдел BrandSport" loading="lazy" draggable="false"></div><figcaption><span>BrandSport</span><span>02</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/kids-shoes.jpg" alt="Детская обувь" loading="lazy" draggable="false"></div><figcaption><span>Детская обувь</span><span>03</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/c-women.jpg" alt="Женская одежда" loading="lazy" draggable="false"></div><figcaption><span>Женская одежда</span><span>04</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/c-men.jpg" alt="Мужская одежда" loading="lazy" draggable="false"></div><figcaption><span>Мужская одежда</span><span>05</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/c-acc.jpg" alt="Сумки и аксессуары" loading="lazy" draggable="false"></div><figcaption><span>Аксессуары</span><span>06</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/c-home.jpg" alt="Товары для дома" loading="lazy" draggable="false"></div><figcaption><span>Товары для дома</span><span>07</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/men-door.jpg" alt="Вход в мужской отдел" loading="lazy" draggable="false"></div><figcaption><span>Men</span><span>08</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/women-door.jpg" alt="Вход в женский отдел" loading="lazy" draggable="false"></div><figcaption><span>Women</span><span>09</span></figcaption></figure>
-    <figure class="look"><div class="ph rv"><img src="img/fitting.jpg" alt="Примерочные" loading="lazy" draggable="false"></div><figcaption><span>Примерочные</span><span>10</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/luxe.jpg" alt="Отдел Brands Luxe" loading="lazy" draggable="false"></div><figcaption><span>Brands Luxe</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/sport.jpg" alt="Отдел BrandSport" loading="lazy" draggable="false"></div><figcaption><span>BrandSport</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/kids-shoes.jpg" alt="Детская обувь" loading="lazy" draggable="false"></div><figcaption><span>Детская обувь</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/c-women.jpg" alt="Женская одежда" loading="lazy" draggable="false"></div><figcaption><span>Женская одежда</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/c-men.jpg" alt="Мужская одежда" loading="lazy" draggable="false"></div><figcaption><span>Мужская одежда</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/c-acc.jpg" alt="Сумки и аксессуары" loading="lazy" draggable="false"></div><figcaption><span>Аксессуары</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/c-home.jpg" alt="Товары для дома" loading="lazy" draggable="false"></div><figcaption><span>Товары для дома</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/men-door.jpg" alt="Вход в мужской отдел" loading="lazy" draggable="false"></div><figcaption><span>Men</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/women-door.jpg" alt="Вход в женский отдел" loading="lazy" draggable="false"></div><figcaption><span>Women</span></figcaption></figure>
+    <figure class="look"><div class="ph rv"><img src="img/fitting.jpg" alt="Примерочные" loading="lazy" draggable="false"></div><figcaption><span>Примерочные</span></figcaption></figure>
   </div>
 </section>
 
@@ -480,7 +500,7 @@ footer .huge:hover{color:var(--acc)}
       <h2 class="rv">Лучшие бренды за <em>меньшие деньги</em></h2>
       <a class="btn light rv" href="#top">Наверх <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 13V3M4 7l4-4 4 4"/></svg></span></a>
     </div>
-    <div class="huge" aria-hidden="true">BRANDS/MART</div>
+    <svg class="huge" viewBox="0 0 1000 150" aria-hidden="true" preserveAspectRatio="xMidYMid meet"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs">BRANDS/MART</text></svg>
     <div class="fgrid">
       <span>©2026 — Все права защищены.</span>
       <nav><a href="tel:+79778006699">+7 (977) 800-66-99</a><a href="mailto:info@wossoutlet.com">info@wossoutlet.com</a><a href="https://t.me/brandsmart1" target="_blank" rel="noopener">Telegram</a></nav>
@@ -512,7 +532,7 @@ footer .huge:hover{color:var(--acc)}
   ];
   const IM=['men-door','women-door','hall','fitting','desk'];
   const grid=$('#sgrid');
-  grid.innerHTML=S.map((s,i)=>`<article class="s" data-r="${s[3]}"><div class="ph"><img src="img/${IM[i%5]}.jpg" alt="Магазин BRANDS/MART: ${s[0]}" loading="lazy" style="opacity:1;transform:none"></div><div class="b"><span class="n">${String(i+1).padStart(2,'0')} / 15</span><h4>${s[0]}</h4><p>${s[1]}</p><div class="f">Пн–Вс · ${s[2]}</div></div></article>`).join('');
+  grid.innerHTML=S.map((s,i)=>`<article class="s" data-r="${s[3]}"><div class="ph"><img src="img/${IM[i%5]}.jpg" alt="Магазин BRANDS/MART: ${s[0]}" loading="lazy" style="opacity:1;transform:none"></div><div class="b"><h4>${s[0]}</h4><p>${s[1]}</p><div class="f">Пн–Вс · ${s[2]}</div></div></article>`).join('');
 
   /* reveal */
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
