@@ -127,14 +127,26 @@ p{text-wrap:pretty}
 .chipg small{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
 
 /* --- strip --- */
-.strip{border-block:1px solid var(--line)}
-.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.strip .it{padding:34px 28px;border-right:1px solid var(--line)}
-.strip .it:first-child{padding-left:0}
-.strip .it:last-child{border:0}
-.strip b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(48px,5.6vw,92px);line-height:1;font-variant-numeric:tabular-nums}
-.strip b sup{font-size:.4em;color:var(--wine);vertical-align:top;position:relative;top:.2em;margin-left:2px}
-.strip span{display:block;margin-top:10px;color:var(--ink2);font-size:14px;max-width:220px}
+.strip{padding:clamp(40px,6vw,90px) 0 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.st{position:relative;height:100%;padding:28px 28px 30px;border-radius:30px;background:var(--bg2);overflow:hidden;isolation:isolate;box-shadow:inset 0 0 0 1px rgba(27,19,22,.06),inset 0 1px 1px rgba(255,255,255,.6);transition:transform .9s var(--e2)}
+.st::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(143,29,51,.2),transparent 68%);z-index:-1;transition:transform 1.4s var(--e)}
+.st:hover{transform:translateY(-6px)}
+.st:hover::before{transform:scale(1.6)}
+.st .k{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2)}
+.st .v{display:flex;align-items:baseline;gap:8px;margin:38px 0 20px;font-family:var(--serif);line-height:.9}
+.st .v b{font-weight:400;font-size:clamp(64px,7.2vw,120px);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.st .v i{font-style:italic;color:var(--wine);font-size:clamp(26px,2.6vw,42px);letter-spacing:-.01em}
+.st .bar{height:2px;margin-bottom:18px;border-radius:2px;background:rgba(27,19,22,.12);overflow:hidden}
+.st .bar::after{content:"";display:block;height:100%;width:var(--w);background:var(--wine);transform:scaleX(0);transform-origin:left;transition:transform 2.2s var(--e) .3s}
+.in .st .bar::after{transform:none}
+.st p{color:var(--ink2);font-size:14px;max-width:240px}
+.st.hot{background:linear-gradient(155deg,#a82a42,#5e1424);color:#fff;box-shadow:0 30px 50px -30px rgba(143,29,51,.7),inset 0 1px 1px rgba(255,255,255,.3)}
+.st.hot::before{background:radial-gradient(circle,rgba(255,255,255,.22),transparent 68%)}
+.st.hot .k,.st.hot p{color:rgba(255,255,255,.78)}
+.st.hot .v i{color:var(--rose)}
+.st.hot .bar{background:rgba(255,255,255,.25)}
+.st.hot .bar::after{background:#fff}
 
 /* --- about --- */
 .about{padding:clamp(100px,14vw,220px) 0}
@@ -277,7 +289,7 @@ footer .huge:hover{color:var(--wine)}
   .hero{padding-top:110px;align-items:start}
   .hero .wrap,.about .wrap,.visit .wrap{grid-template-columns:1fr}
   .collage{height:520px;min-height:0}
-  .strip .wrap{grid-template-columns:1fr 1fr}.strip .it:nth-child(2){border-right:0}.strip .it:nth-child(3){padding-left:0}.strip .it{border-bottom:1px solid var(--line)}
+  .strip .wrap{grid-template-columns:1fr 1fr}
   .about .pics{height:520px;min-height:0}
   .bento{grid-template-columns:1fr 1fr}.bento .cat{grid-column:auto!important;grid-row:auto!important}.k1{grid-column:1/-1!important}
   .sc{position:relative!important;top:0!important;grid-template-columns:1fr;min-height:0}.sc .ph{min-height:260px;order:-1}
@@ -288,6 +300,7 @@ footer .huge:hover{color:var(--wine)}
 @media(max-width:620px){
   .bento{grid-template-columns:1fr}.k1{grid-column:auto!important}
   .sgrid{grid-template-columns:1fr}
+  .strip .wrap{grid-template-columns:1fr}
   .badge{width:104px;height:104px;font-size:34px}
   .row{grid-template-columns:96px 1fr}
   .collage{height:440px}
@@ -353,10 +366,10 @@ footer .huge:hover{color:var(--wine)}
 
 <div class="strip">
   <div class="wrap">
-    <div class="it rv"><b><span data-count="80">0</span><sup>%</sup></b><span>максимальная скидка на известные бренды</span></div>
-    <div class="it rv" style="--d:1"><b><span data-count="15">0</span></b><span>магазинов в Москве, Подмосковье и регионах</span></div>
-    <div class="it rv" style="--d:2"><b><span data-count="65">0</span><sup>тыс. м²</sup></b><span>торговых площадей в плане развития сети</span></div>
-    <div class="it rv" style="--d:3"><b><span data-count="7">0</span><sup>дн.</sup></b><span>в неделю: магазины открыты ежедневно</span></div>
+    <div class="rv"><div class="st hot"><div class="k"><span>01</span><span>Скидки</span></div><div class="v"><b data-count="80">0</b><i>%</i></div><div class="bar" style="--w:80%"></div><p>максимальная скидка на известные бренды</p></div></div>
+    <div class="rv" style="--d:1"><div class="st"><div class="k"><span>02</span><span>Сеть</span></div><div class="v"><b data-count="15">0</b><i>магазинов</i></div><div class="bar" style="--w:30%"></div><p>в Москве, Подмосковье и регионах</p></div></div>
+    <div class="rv" style="--d:2"><div class="st"><div class="k"><span>03</span><span>Рост</span></div><div class="v"><b data-count="65">0</b><i>тыс. м²</i></div><div class="bar" style="--w:100%"></div><p>торговых площадей в плане развития сети</p></div></div>
+    <div class="rv" style="--d:3"><div class="st"><div class="k"><span>04</span><span>Режим</span></div><div class="v"><b data-count="7">0</b><i>дней</i></div><div class="bar" style="--w:100%"></div><p>в неделю: магазины открыты ежедневно</p></div></div>
   </div>
 </div>
 
