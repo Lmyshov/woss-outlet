@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://brands-mart.ru/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://brands-mart.ru/img/hall.jpg</image:loc><image:title>Торговый зал BRANDS/MART</image:title></image:image>
+    <image:image><image:loc>https://brands-mart.ru/img/women-door.jpg</image:loc><image:title>Вход в женский отдел BRANDS/MART</image:title></image:image>
+    <image:image><image:loc>https://brands-mart.ru/img/men-door.jpg</image:loc><image:title>Вход в мужской отдел BRANDS/MART</image:title></image:image>
+    <image:image><image:loc>https://brands-mart.ru/img/luxe.jpg</image:loc><image:title>Отдел Brands Luxe</image:title></image:image>
+    <image:image><image:loc>https://brands-mart.ru/img/sport.jpg</image:loc><image:title>Отдел BrandSport</image:title></image:image>
+    <image:image><image:loc>https://brands-mart.ru/img/window.jpg</image:loc><image:title>Витрина: известные бренды со скидкой 30–80%</image:title></image:image>
+  </url>
+</urlset>

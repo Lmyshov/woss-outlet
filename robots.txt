@@ -1,0 +1,35 @@
+# BRANDS/MART — https://brands-mart.ru/
+# Сайт открыт для индексации поисковыми системами и ИИ-ассистентами.
+
+User-agent: *
+Allow: /
+
+# Поисковые и ИИ-боты (явное разрешение)
+User-agent: Yandex
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://brands-mart.ru/sitemap.xml
